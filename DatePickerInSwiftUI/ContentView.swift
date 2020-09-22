@@ -8,9 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selectedDate = Date()
+    @State private var selectedDateWheel = Date()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            DatePicker("Selected Date", selection: $selectedDate)
+                .datePickerStyle(CompactDatePickerStyle())
+        
+            DatePicker("Selected Date", selection: $selectedDateWheel)
+                .datePickerStyle(WheelDatePickerStyle())
+        }.padding()
     }
 }
 
